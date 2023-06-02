@@ -14,6 +14,7 @@
                     <table class="border-collapse table-auto w-full text-sm">
                         <thead>
                             <tr>
+                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">No</th>
                                 <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">title</th>
                                 <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">Email</th>
                                 <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">Created At</th>
@@ -22,8 +23,12 @@
                         </thead>
                         <tbody class="bg-white">
                             {{-- populate our post data --}}
+                            @php
+                                $i = 1;
+                            @endphp
                             @foreach ($articles as $article)
                                 <tr>
+                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $i }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $article->title }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $article->description }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $article->created_at }}</td>
@@ -38,6 +43,9 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @php
+                $i++;
+            @endphp
                             @endforeach
                         </tbody>
                     </table>
